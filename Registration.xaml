@@ -1,0 +1,59 @@
+﻿<Window x:Class="WpfApp1.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Регистрация" Height="400" Width="400" Background="#FADCE1">
+    <Window.Resources>
+        <Style x:Key="BlackComboBoxItemStyle" TargetType="ComboBoxItem">
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя часть с заголовком -->
+        <TextBlock Grid.Row="0" Text="Регистрация" HorizontalAlignment="Center" FontSize="24" Foreground="#FFFFFF" Margin="0,20,0,10" />
+
+        <!-- Логин -->
+        <Label Content="Логин:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,60,0,0" Foreground="#FFFFFF" />
+        <TextBox Name="LoginTextBox" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Margin="120,60,0,0" Background="#FFAAB7" Foreground="#FFFFFF" />
+
+        <!-- Пароль -->
+        <Label Content="Пароль:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,100,0,0" Foreground="#FFFFFF" />
+        <PasswordBox Name="PasswordBox" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Margin="120,100,0,0" Background="#FFAAB7" Foreground="#FFFFFF" />
+
+        <!-- Имя -->
+        <Label Content="Имя:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,140,0,0" Foreground="#FFFFFF" />
+        <TextBox Name="NameTextBox" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Margin="120,140,0,0" Background="#FFAAB7" Foreground="#FFFFFF" />
+
+        <!-- Фамилия -->
+        <Label Content="Фамилия:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,180,0,0" Foreground="#FFFFFF" />
+        <TextBox Name="SurnameTextBox" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Margin="120,180,0,0" Background="#FFAAB7" Foreground="#FFFFFF" />
+
+        <!-- Телефон -->
+        <Label Content="Телефон:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,220,0,0" Foreground="#FFFFFF" />
+        <TextBox Name="PhoneTextBox" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Margin="120,220,0,0" Background="#FFAAB7" Foreground="#FFFFFF" />
+
+        <!-- Выбор роли -->
+        <Label Content="Роль:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,260,0,0" Foreground="#FFFFFF" />
+        <ComboBox Name="RoleComboBox" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Margin="120,260,0,0" Background="#FFAAB7" Foreground="Black">
+            <ComboBox.Resources>
+                <Style BasedOn="{StaticResource BlackComboBoxItemStyle}" TargetType="ComboBoxItem"/>
+            </ComboBox.Resources>
+            <ComboBoxItem Content="Системный программист" />
+            <ComboBoxItem Content="Менеджер" />
+            <ComboBoxItem Content="Специалист" />
+        </ComboBox>
+
+        <!-- Кнопка "Зарегистрироваться" -->
+        <Button Content="Зарегистрироваться" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,300,0,0" Click="RegisterButton_Click" Background="#FFAAB7" Foreground="#FFFFFF" />
+    </Grid>
+</Window>

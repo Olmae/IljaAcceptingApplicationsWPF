@@ -1,0 +1,68 @@
+﻿<Window x:Class="WpfApp1.EditRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="EditRequest" Height="450" Width="800" Background="#FADCE1">
+
+  <Window.Resources>
+    <Style x:Key="PinkComboBoxStyle" TargetType="ComboBox">
+      <Setter Property="Foreground" Value="#FFFFFF"/>
+      <Setter Property="Background" Value="#FFAAB7"/>
+      <Setter Property="BorderBrush" Value="#FFAAB7"/>
+      <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    <Style x:Key="PinkComboBoxItemStyle" TargetType="ComboBoxItem">
+      <Setter Property="Foreground" Value="#FFFFFF"/>
+      <Setter Property="Background" Value="#FFAAB7"/>
+    </Style>
+    <Style x:Key="PinkTextBoxStyle" TargetType="TextBox">
+      <Setter Property="Foreground" Value="#FFFFFF"/>
+      <Setter Property="Background" Value="#FFAAB7"/>
+    </Style>
+    <Style x:Key="PinkButtonStyle" TargetType="Button">
+      <Setter Property="Foreground" Value="#FFFFFF"/>
+      <Setter Property="Background" Value="#FFAAB7"/>
+    </Style>
+  </Window.Resources>
+
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <!-- Левая часть с информацией о заявке -->
+    <StackPanel Grid.Column="0" Margin="20">
+      <TextBlock Text="РЕДАКТИРОВАНИЕ ЗАЯВКИ" FontSize="24" Foreground="#FFFFFF"/>
+      <TextBlock Text="Номер заявки:" Foreground="#FFFFFF" Margin="0,10"/>
+      <TextBox Name="RequestNumberTextBox" Width="250" Foreground="#FFFFFF" Background="#FFAAB7"/>
+      <TextBlock Text="Время заявки: XX:XX" Foreground="#FFFFFF" Margin="0,10"/>
+      <TextBlock Text="Оборудование" Foreground="#FFFFFF" Margin="0,10"/>
+      <TextBox Width="250" Foreground="#FFFFFF" Background="#FFAAB7"/>
+      <TextBlock Text="Тип неисправности" Foreground="#FFFFFF" Margin="0,10"/>
+      <TextBox Width="250" Foreground="#FFFFFF" Background="#FFAAB7"/>
+      <TextBlock Text="Информация о клиенте" Foreground="#FFFFFF" Margin="0,10"/>
+      <TextBox Width="250" Foreground="#FFFFFF" Background="#FFAAB7"/>
+      <TextBlock Text="Статус" Foreground="#FFFFFF" Margin="0,10"/>
+      <ComboBox Width="250" Style="{StaticResource PinkComboBoxStyle}">
+        <ComboBox.Resources>
+          <Style BasedOn="{StaticResource PinkComboBoxItemStyle}" TargetType="ComboBoxItem"/>
+        </ComboBox.Resources>
+        <ComboBoxItem Content="На рассмотрении"/>
+        <ComboBoxItem Content="Приведено в действие"/>
+        <ComboBoxItem Content="Завершено"/>
+      </ComboBox>
+      <Button Content="Назад" Margin="0,20" Click="BackButton_Click" Style="{StaticResource PinkButtonStyle}"/>
+    </StackPanel>
+
+    <!-- Правая часть с описанием проблемы -->
+    <StackPanel Grid.Column="1" Margin="20">
+      <TextBlock Text="Описание проблемы" FontSize="18" Foreground="#FFFFFF"/>
+      <TextBox Height="300" Foreground="#FFFFFF" Background="#FFAAB7" Style="{StaticResource PinkTextBoxStyle}"/>
+      <Button Content="Сохранить" Margin="0,20" Click="SaveButton_Click" Style="{StaticResource PinkButtonStyle}"/>
+    </StackPanel>
+  </Grid>
+</Window>
